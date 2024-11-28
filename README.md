@@ -15,7 +15,7 @@
 ---
 - Api 명세서 
 
-[Api명세서]: https://documenter.getpostman.com/view/39383521/2sAYBXBqa8
+
 ---
 - ERD
 
