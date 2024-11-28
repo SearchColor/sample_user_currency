@@ -19,4 +19,4 @@
 ---
 - ERD
 
-![스크린샷 2024-11-29 오전 1 55 27](https://documenter.getpostman.com/view/39383521/2sAYBXBqa8)
+![스크린샷 2024-11-29 오전 1 55 27](https://github.com/user-attachments/assets/0c1b76bc-eb36-436d-bb4b-18ff285e4acc)
