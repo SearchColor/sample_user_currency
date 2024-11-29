@@ -46,18 +46,18 @@ public class DataInitializer {
         Currency currency2 = new Currency("JPY" , exchangeRate2 , "円");
 
         BigDecimal exchangeRate3 = new BigDecimal(-1500);
-        Currency currency3 = new Currency("BAD" , exchangeRate3 , "X");
+        Currency badCurrency = new Currency("BAD" , exchangeRate3 , "X");
 
         userRepository.save(user1);
         userRepository.save(user2);
         currencyRepository.save(currency1);
         currencyRepository.save(currency2);
-        currencyRepository.save(currency3);
+        currencyRepository.save(badCurrency);
 
-        int badCurrency = currencyRepository.countBadCurrency();
+        int invalidCount = currencyRepository.countBadCurrency();
 
         // 유효하지않는 currency 존재시 로그 기록
-        if (badCurrency != 0){
+        if (invalidCount != 0){
             log.info("====== exist invalid currency =====");
         }
 

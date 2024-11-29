@@ -10,6 +10,7 @@ import java.math.BigDecimal;
 public class CurrencyRequestDto {
 
     @NotNull(message = "currencyName 은 필수값 입니다.")
+    @Size(min = 2 , max = 4 ,message = "currencyName 2~4 글자까지 허용됩니다.")
     private String currencyName;
 
     private BigDecimal exchangeRate;
