@@ -23,9 +23,6 @@ import java.util.List;
 @Profile("dev")
 public class DataInitializer {
 
-
-
-
     @Autowired
     private UserRepository userRepository;
 
@@ -71,7 +68,7 @@ public class DataInitializer {
         this.disconnect();
     }
 
-    // 애플리케이션 종료 시 호출되어야 함
+    // 애플리케이션 종료 시 호출
     public void disconnect() {
         log.info("====== close Initialized ======" );
     }
