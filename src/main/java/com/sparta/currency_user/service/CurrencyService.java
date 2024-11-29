@@ -38,5 +38,10 @@ public class CurrencyService {
 
 
 
+    public Integer countBadCurrency(){
+        return currencyRepository.countBadCurrency();
+    }
+
+
 
 }

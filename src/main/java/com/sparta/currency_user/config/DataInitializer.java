@@ -23,16 +23,19 @@ import java.util.List;
 @Profile("dev")
 public class DataInitializer {
 
+
+
+
     @Autowired
     private UserRepository userRepository;
 
     @Autowired
     private CurrencyRepository currencyRepository;
 
+
     @PostConstruct
     public void init() {
 
-        // Tutor 데이터 초기화
         User user1 = new User("user1" , "aa@aa.com");
         User user2 = new User("user2" , "bb@bb.com");
 
@@ -42,13 +45,35 @@ public class DataInitializer {
         BigDecimal exchangeRate2 = new BigDecimal(9);
         Currency currency2 = new Currency("JPY" , exchangeRate2 , "円");
 
+        BigDecimal exchangeRate3 = new BigDecimal(-1500);
+        Currency currency3 = new Currency("BAD" , exchangeRate3 , "X");
+
         userRepository.save(user1);
         userRepository.save(user2);
         currencyRepository.save(currency1);
         currencyRepository.save(currency2);
+        currencyRepository.save(currency3);
+
+        int badCurrency = currencyRepository.countBadCurrency();
+
+        // 유효하지않는 currency 존재시 로그 기록
+        if (badCurrency != 0){
+            log.info("====== exist invalid currency =====");
+        }
+
 
 
         log.info("===== Test Data Initialized =====");
+    }
+
+    @PreDestroy
+    public void destroy() {
+        this.disconnect();
+    }
+
+    // 애플리케이션 종료 시 호출되어야 함
+    public void disconnect() {
+        log.info("====== close Initialized ======" );
     }
 
 }
